@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default props => {
-  console.log(props);
   return (
     <li>
       <h3>{props.searchTerm}</h3>

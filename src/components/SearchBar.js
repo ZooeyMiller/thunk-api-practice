@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateSearch, addSearchItem } from '../actionCreators';
+import { updateSearch, addSearchItem, handleError } from '../actionCreators';
 
 const SearchBar = props => {
   return (
@@ -21,11 +21,28 @@ const SearchBar = props => {
     </form>
   );
 };
+const getGif = searchTerm => {
+  return dispatch => {
+    fetch(
+      `https://api.giphy.com/v1/gifs/search?q=${encodeURIComponent(
+        searchTerm
+      )}&api_key=dc6zaTOxFJmzC`
+    )
+      .then(res => res.json())
+      .then(json =>
+        dispatch(addSearchItem(searchTerm, json.data[0].images.original.url))
+      )
+      .catch(error => {
+        dispatch(handleError());
+      });
+  };
+};
 const mapStateToProps = state => ({
   searchTerm: state.searchTerm,
 });
 const mapDispatchToProps = dispatch => ({
   onSearchInput: text => dispatch(updateSearch(text)),
-  onSearchSubmit: text => dispatch(addSearchItem(text)),
+  onSearchSubmit: text => dispatch(getGif(text)),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

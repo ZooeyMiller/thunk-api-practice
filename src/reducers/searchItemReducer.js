@@ -8,7 +8,7 @@ export const searchItemReducer = (state = [], action) => {
         {
           searchTerm: action.searchTerm,
           time: new Date().toISOString(),
-          image: 'http://via.placeholder.com/350x350',
+          image: action.image,
         },
       ];
     case REMOVE_GIF_SEARCH:

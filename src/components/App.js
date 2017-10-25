@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchBar from './SearchBar';
 import SearchesContainer from './SearchesContainer';
+import Error from './Error';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <SearchBar />
-        <SearchesContainer />
-      </div>
-    );
-  }
-}
+import { connect } from 'react-redux';
 
-export default App;
+const App = props => {
+  return (
+    <div>
+      <SearchBar />
+      <SearchesContainer />
+      {props.error ? <Error error={props.error} /> : ''}
+    </div>
+  );
+};
+const mapStateToProps = state => ({
+  error: state.error,
+});
+
+export default connect(mapStateToProps)(App);
