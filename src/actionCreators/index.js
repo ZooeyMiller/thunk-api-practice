@@ -3,6 +3,7 @@ import {
   ADD_GIF_SEARCH,
   REMOVE_GIF_SEARCH,
   API_ERROR,
+  SEARCH_ERROR,
 } from '../constants';
 
 export const updateSearch = searchTerm => ({
@@ -21,6 +22,10 @@ export const removeSearchItem = index => ({
   index,
 });
 
-export const handleError = () => ({
+export const handleApiError = () => ({
   type: API_ERROR,
+});
+
+export const handleSearchError = () => ({
+  type: SEARCH_ERROR,
 });

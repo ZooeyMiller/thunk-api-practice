@@ -1,9 +1,11 @@
-import { API_ERROR, ADD_GIF_SEARCH } from '../constants';
+import { API_ERROR, ADD_GIF_SEARCH, SEARCH_ERROR } from '../constants';
 
 export const errorReducer = (state = '', action) => {
   switch (action.type) {
     case API_ERROR:
       return 'Problem getting gif from the api, try a different search term?';
+    case SEARCH_ERROR:
+      return 'Search cannot be empty';
     case ADD_GIF_SEARCH:
       return '';
     default:
