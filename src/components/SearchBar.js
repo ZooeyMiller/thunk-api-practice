@@ -1,10 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateSearch } from '../actionCreators';
+import { updateSearch, addSearchItem } from '../actionCreators';
 
 const SearchBar = props => {
   return (
-    <form>
+    <form
+      onSubmit={e => {
+        e.preventDefault();
+        props.onSearchSubmit(props.searchTerm);
+      }}
+    >
       <input
         type="text"
         value={props.searchTerm}
@@ -21,5 +26,6 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   onSearchInput: text => dispatch(updateSearch(text)),
+  onSearchSubmit: text => dispatch(addSearchItem(text)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

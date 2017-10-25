@@ -4,7 +4,7 @@ import { searchItemReducer as searches } from './searchItemReducer';
 
 const reducers = {
   searchTerm,
-  searchItemReducer,
+  searches,
 };
 
 export default combineReducers(reducers);
