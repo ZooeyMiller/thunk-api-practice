@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import { updateSearch } from '../actionCreators';
 
 const SearchBar = props => {
-  console.log(props);
   return (
     <form>
       <input
         type="text"
         value={props.searchTerm}
         onChange={e => {
-          e.preventDefault;
           props.onSearchInput(e.target.value);
         }}
       />
