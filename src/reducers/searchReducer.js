@@ -1,6 +1,15 @@
+// @flow
 import { UPDATE_SEARCH, ADD_GIF_SEARCH, API_ERROR } from '../constants';
 
-export const searchReducer = (state = '', action) => {
+type SearchAction = {
+  type: string,
+  searchTerm: string,
+};
+
+export const searchReducer = (
+  state: string = '',
+  action: SearchAction
+): string => {
   switch (action.type) {
     case UPDATE_SEARCH:
       return action.searchTerm;
