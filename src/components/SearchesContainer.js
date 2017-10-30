@@ -2,14 +2,7 @@ import React from 'react';
 import SearchItem from './SearchItem';
 import { connect } from 'react-redux';
 import { removeSearchItem } from '../actionCreators';
-import styled from 'styled-components';
-
-const GifCardContainer = styled.ul`
-  display: flex;
-  flex-direction: column-reverse;
-  padding: 0;
-  margin: 0 0.5em 0 0.5em;
-`;
+import { GifCardContainer } from './styled-components/SearchesContainer';
 
 export const SearchesContainer = props => {
   return (
