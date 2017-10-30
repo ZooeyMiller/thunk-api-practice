@@ -6,10 +6,36 @@ import {
   handleApiError,
   handleSearchError,
 } from '../actionCreators';
+import styled from 'styled-components';
+
+const SearchForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: .5em;
+`
+const SearchInput = styled.input`
+  border-radius: 5px;
+  margin-bottom: .5em;
+  border-style: solid;
+  font-size: 1em;
+  font-family: ubuntu, helvetica, sans-serif;
+  padding: .25em;
+`
+
+const SearchButton = styled.button`
+  background-color: palevioletred;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: ubuntu, helvetica, sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: .15em .25em .25em .25em;
+`
 
 const SearchBar = props => {
   return (
-    <form
+    <SearchForm
       onSubmit={e => {
         e.preventDefault();
 
@@ -18,15 +44,16 @@ const SearchBar = props => {
           : props.handleSearchError();
       }}
     >
-      <input
+      <SearchInput
+        placeholder="search for a gif..."
         type="text"
         value={props.searchTerm}
         onChange={e => {
           props.onSearchInput(e.target.value);
         }}
       />
-      <button>search</button>
-    </form>
+      <SearchButton>go</SearchButton>
+    </SearchForm>
   );
 };
 const getGif = searchTerm => {
