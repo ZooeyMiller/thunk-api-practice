@@ -11,16 +11,16 @@ import styled from 'styled-components';
 const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin: .5em;
-`
+  margin: 0.5em 0.5em 0 0.5em;
+`;
 const SearchInput = styled.input`
   border-radius: 5px;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   border-style: solid;
-  font-size: 1em;
+  font-size: 1.5em;
   font-family: ubuntu, helvetica, sans-serif;
-  padding: .25em;
-`
+  padding: 0.25em;
+`;
 
 const SearchButton = styled.button`
   background-color: palevioletred;
@@ -30,8 +30,8 @@ const SearchButton = styled.button`
   font-family: ubuntu, helvetica, sans-serif;
   font-size: 1.5em;
   font-weight: bold;
-  padding: .15em .25em .25em .25em;
-`
+  padding: 0.15em 0.25em 0.25em 0.25em;
+`;
 
 const SearchBar = props => {
   return (

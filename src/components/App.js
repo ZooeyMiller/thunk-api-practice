@@ -10,7 +10,7 @@ const Header = styled.div`
   background-color: palevioletred;
   font-family: ubuntu, helvetica, sans-serif;
   min-height: 2em;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
   width: 100%;
   color: white;
