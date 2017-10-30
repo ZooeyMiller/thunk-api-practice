@@ -21,16 +21,22 @@ const Header = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  @media (min-width: 767px) {
+    width: 767px;
+    margin: 0 auto;
+  }
 `;
 
 const App = props => {
   return (
-    <Container>
+    <div>
       <Header>gif search</Header>
-      <SearchBar />
-      {props.error ? <Error error={props.error} /> : ''}
-      <SearchesContainer />
-    </Container>
+      <Container>
+        <SearchBar />
+        {props.error ? <Error error={props.error} /> : ''}
+        <SearchesContainer />
+      </Container>
+    </div>
   );
 };
 const mapStateToProps = state => ({

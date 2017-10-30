@@ -7,7 +7,7 @@ export const searchItemReducer = (state = [], action) => {
         ...state,
         {
           searchTerm: action.searchTerm,
-          time: new Date().toISOString(),
+          time: action.time,
           image: action.image,
         },
       ];

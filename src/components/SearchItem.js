@@ -11,6 +11,12 @@ const GifCard = styled.li`
   box-shadow: 7px 7px 5px #888888;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5em;
+  }
 `;
 
 const DeleteButton = styled.button`
@@ -22,6 +28,9 @@ const DeleteButton = styled.button`
   font-size: 1em;
   font-weight: bold;
   padding: 0.25em;
+  @media (min-width: 767px) {
+    font-size: 1.5em;
+  }
 `;
 
 const Gif = styled.img`
@@ -29,6 +38,9 @@ const Gif = styled.img`
   max-width: 100%;
   display: block;
   margin: 0 auto;
+  @media (min-width: 768px) {
+    max-height: 20em;
+  }
 `;
 
 const Info = styled.h4`
@@ -36,20 +48,40 @@ const Info = styled.h4`
   font-size: 1em;
   margin: 0.25em;
   text-align: center;
+  @media (min-width: 767px) {
+    text-align: left;
+    font-size: 1.5em;
+  }
 `;
 
-const GifContainer = styled.div`width: 100%;`;
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @media (min-width: 767px) {
+    padding: 1em;
+    min-width: 40%;
+  }
+`;
+const GifContainer = styled.div`
+  width: 100%;
+  @media (min-width: 767px) {
+    max-width: 50%;
+  }
+`;
 export default props => {
   return (
     <GifCard>
       <GifContainer>
         <Gif src={props.image} alt={`gif of ${props.searchTerm}`} />
       </GifContainer>
-      <Info>title: {props.searchTerm}</Info>
-      <Info>time: {props.time}</Info>
-      <DeleteButton onClick={() => props.removeSearchItem(props.index)}>
-        delete
-      </DeleteButton>
+      <InfoContainer>
+        <Info>title: {props.searchTerm}</Info>
+        <Info>time: {props.time}</Info>
+        <DeleteButton onClick={() => props.removeSearchItem(props.index)}>
+          delete
+        </DeleteButton>
+      </InfoContainer>
     </GifCard>
   );
 };

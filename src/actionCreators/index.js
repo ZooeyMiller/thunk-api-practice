@@ -11,10 +11,11 @@ export const updateSearch = searchTerm => ({
   searchTerm,
 });
 
-export const addSearchItem = (searchTerm, image) => ({
+export const addSearchItem = (searchTerm, image, time) => ({
   type: ADD_GIF_SEARCH,
   searchTerm,
   image,
+  time,
 });
 
 export const removeSearchItem = index => ({

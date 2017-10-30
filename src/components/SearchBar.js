@@ -65,7 +65,13 @@ const getGif = searchTerm => {
     )
       .then(res => res.json())
       .then(json =>
-        dispatch(addSearchItem(searchTerm, json.data[0].images.original.url))
+        dispatch(
+          addSearchItem(
+            searchTerm,
+            json.data[0].images.original.url,
+            new Date().toISOString().slice(11, 16)
+          )
+        )
       )
       .catch(error => {
         dispatch(handleApiError());
