@@ -8,6 +8,7 @@ const GifCardContainer = styled.ul`
   display: flex;
   flex-direction: column-reverse;
   padding: 0;
+  margin: 0 .25em 0 .25em;
 `;
 
 export const SearchesContainer = props => {
